@@ -8,7 +8,6 @@ analysis:
     - piplus_piminus
     - piplus_pi0
     - piminus_pi0
-
 datasets:
   - id: Fall2018_RGA_inbending
     kind: data
@@ -25,19 +24,19 @@ datasets:
   - id: Spring2019_RGA_inbending
     kind: data
     polarity: inbending
-    beam_energy_gev: 10.6041
+    beam_energy_gev: 10.1998
     source_globs:
       - /cache/clas12/rg-a/production/recon/spring2019/torus-1/pass1/v1/dst/train/nSidis/*.hipo
   - id: MC_RGA_inbending
     kind: monte_carlo
     polarity: inbending
-    beam_energy_gev: 10.604
+    beam_energy_gev: 10.6041
     source_globs:
       - /cache/clas12/rg-a/production/montecarlo/clasdis/fall2018/torus-1/v1/bkg45nA_10604MeV/*.hipo
   - id: MC_RGA_outbending
     kind: monte_carlo
     polarity: outbending
-    beam_energy_gev: 10.604
+    beam_energy_gev: 10.6041
     source_globs:
       - /cache/clas12/rg-a/production/montecarlo/clasdis/fall2018/torus+1/v1/bkg50nA_10604MeV/*.hipo
 
@@ -70,3 +69,4 @@ neutral_pion_background:
   signal_model: gaussian
   background_model: polynomial
   background_order: 4
+
