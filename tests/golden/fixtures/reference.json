@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "dataset": "RGA_golden_fixture",
+  "channel": "piplus_pi0",
+  "bin_id": "integrated",
+  "background_method": "sideband",
+  "counts": {
+    "input_events": 10000,
+    "selected_events": 4210,
+    "dihadron_candidates": 5388,
+    "signal_window_candidates": 1832,
+    "sideband_candidates": 974
+  },
+  "amplitudes": {
+    "sin_2phiR_minus_phih": {
+      "value": 0.012,
+      "uncertainty": 0.008
+    },
+    "sin_phiR": {
+      "value": -0.006,
+      "uncertainty": 0.007
+    },
+    "sin_phih": {
+      "value": 0.041,
+      "uncertainty": 0.009
+    },
+    "sin_phih_minus_phiR": {
+      "value": 0.018,
+      "uncertainty": 0.008
+    },
+    "sin_2phih_minus_phiR": {
+      "value": -0.009,
+      "uncertainty": 0.01
+    },
+    "sin_2phih_minus_2phiR": {
+      "value": 0.004,
+      "uncertainty": 0.011
+    },
+    "sin_3phih_minus_2phiR": {
+      "value": -0.014,
+      "uncertainty": 0.012
+    }
+  },
+  "covariance": [
+    [
+      0.000064,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0.000049,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0.000081,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0.000064,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0.0001,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.000121,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.000144
+    ]
+  ]
+}
