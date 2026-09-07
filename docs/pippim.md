@@ -24,6 +24,26 @@ Set `CLAS12_RCDB_ROOT` to a local `rcdb.root` snapshot when the standard JLab
 environment does not already configure the RCDB connection. The path is never
 hard-coded into the analysis.
 
+## GUI
+
+The JLab build also produces `clas12-gui`:
+
+```sh
+./build/clas12-gui
+```
+
+The Pipeline tab loads dataset choices from the selected YAML file and exposes
+the pipeline executable, output directory, debug file/event limits, local or
+Slurm execution, and separate run/build/fit actions. The Jobs & Logs tab tails
+the active log, displays the local process or the user's live `squeue`, and the
+status bar reports available storage. The ROOT Results tab embeds the saved
+`c_asymmetry` canvas. A fit can therefore be adjusted or repeated without
+rereading any HIPO files.
+
+For Slurm, the GUI writes a reproducible `gui-submit.sh` beside the outputs and
+submits it with the account and partition shown in the form. It never embeds a
+username or private filesystem path.
+
 ## Configure HIPO locations
 
 Edit only `source_globs` in `config/rga.yaml` if the production paths have
