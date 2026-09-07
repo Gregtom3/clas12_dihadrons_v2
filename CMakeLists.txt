@@ -31,7 +31,7 @@ add_executable(clas12-golden-check apps/golden-check.cpp)
 target_link_libraries(clas12-golden-check PRIVATE clas12_analysis)
 
 if(CLAS12_ENABLE_JLAB)
-  find_package(ROOT REQUIRED COMPONENTS Core RIO Tree Hist Graf Gpad Matrix)
+  find_package(ROOT REQUIRED COMPONENTS Core RIO Tree Hist Graf Gpad Matrix Gui)
   if(NOT CLAS12ROOT_INCLUDE_DIR)
     find_path(CLAS12ROOT_INCLUDE_DIR HipoChain.h HINTS ENV CLAS12ROOT
       PATH_SUFFIXES Clas12Root include)
@@ -44,6 +44,9 @@ if(CLAS12_ENABLE_JLAB)
   target_link_libraries(clas12-rga-pippim PRIVATE clas12_analysis
     ROOT::Core ROOT::RIO ROOT::Tree ROOT::Hist ROOT::Graf ROOT::Gpad ROOT::Matrix
     ${CLAS12ROOT_LIBRARIES})
+  add_executable(clas12-gui apps/analysis-gui.cpp)
+  target_link_libraries(clas12-gui PRIVATE clas12_analysis
+    ROOT::Core ROOT::RIO ROOT::Tree ROOT::Hist ROOT::Graf ROOT::Gpad ROOT::Gui)
 endif()
 
 if(CLAS12_BUILD_TESTS)
