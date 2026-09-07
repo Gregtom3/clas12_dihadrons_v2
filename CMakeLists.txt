@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(clas12_dihadrons VERSION 0.3.0 LANGUAGES CXX)
+project(clas12_dihadrons VERSION 0.4.0 LANGUAGES CXX)
 
 option(CLAS12_BUILD_TESTS "Build tests" ON)
 set(CMAKE_CXX_STANDARD 20)
@@ -12,6 +12,7 @@ find_package(yaml-cpp REQUIRED)
 add_library(clas12_analysis
     src/Modulation.cpp
     src/analysis/CandidateBuilder.cpp
+    src/analysis/EventProcessor.cpp
     src/config/AnalysisConfig.cpp
     src/golden/GoldenAnalysis.cpp
     src/provenance/RunManifest.cpp
@@ -29,6 +30,9 @@ if(CLAS12_BUILD_TESTS)
   add_executable(candidate-builder-test tests/analysis/test_candidate_builder.cpp)
   target_link_libraries(candidate-builder-test PRIVATE clas12_analysis)
   add_test(NAME candidate-builder COMMAND candidate-builder-test)
+  add_executable(event-processor-test tests/analysis/test_event_processor.cpp)
+  target_link_libraries(event-processor-test PRIVATE clas12_analysis)
+  add_test(NAME event-processor COMMAND event-processor-test)
   add_test(NAME configuration-valid COMMAND clas12-analysis validate
     ${CMAKE_CURRENT_SOURCE_DIR}/config/rga.yaml)
   add_test(NAME configuration-rejects-sweights COMMAND clas12-analysis validate
