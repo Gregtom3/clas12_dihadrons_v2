@@ -1,0 +1,72 @@
+schema_version: 1
+
+analysis:
+  run_group: RGA
+  channels:
+    - piplus_piplus
+    - piminus_piminus
+    - piplus_piminus
+    - piplus_pi0
+    - piminus_pi0
+
+datasets:
+  - id: Fall2018_RGA_inbending
+    kind: data
+    polarity: inbending
+    beam_energy_gev: 10.6041
+    source_globs:
+      - /cache/clas12/rg-a/production/recon/fall2018/torus-1/pass1/v1/dst/train/nSidis/*.hipo
+  - id: Fall2018_RGA_outbending
+    kind: data
+    polarity: outbending
+    beam_energy_gev: 10.6041
+    source_globs:
+      - /cache/clas12/rg-a/production/recon/fall2018/torus+1/pass1/v1/dst/train/nSidis/*.hipo
+  - id: Spring2019_RGA_inbending
+    kind: data
+    polarity: inbending
+    beam_energy_gev: 10.6041
+    source_globs:
+      - /cache/clas12/rg-a/production/recon/spring2019/torus-1/pass1/v1/dst/train/nSidis/*.hipo
+  - id: MC_RGA_inbending
+    kind: monte_carlo
+    polarity: inbending
+    beam_energy_gev: 10.604
+    source_globs:
+      - /cache/clas12/rg-a/production/montecarlo/clasdis/fall2018/torus-1/v1/bkg45nA_10604MeV/*.hipo
+  - id: MC_RGA_outbending
+    kind: monte_carlo
+    polarity: outbending
+    beam_energy_gev: 10.604
+    source_globs:
+      - /cache/clas12/rg-a/production/montecarlo/clasdis/fall2018/torus+1/v1/bkg50nA_10604MeV/*.hipo
+
+limits:
+  mode: debug
+  max_files: 2
+  max_events_per_file: 10000
+
+paths:
+  scratch_root: "${CLAS12_SCRATCH}/clas12_dihadrons_v2"
+  output_root: "${CLAS12_OUTPUT}/clas12_dihadrons_v2"
+  log_root: "${CLAS12_LOGS}/clas12_dihadrons_v2"
+
+scheduler:
+  backend: slurm
+  account: clas12
+  partition: production
+  max_concurrent_jobs: 100
+
+photon_models:
+  policy: reuse_or_train
+  score_threshold: 0.9
+
+neutral_pion_background:
+  method: sideband
+  fit_min_gev: 0.07
+  fit_max_gev: 0.40
+  signal_min_gev: 0.106
+  signal_max_gev: 0.166
+  signal_model: gaussian
+  background_model: polynomial
+  background_order: 4

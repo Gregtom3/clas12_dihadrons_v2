@@ -1,0 +1,28 @@
+schema_version: 1
+analysis:
+  run_group: RGA
+  channels: [piplus_pi0]
+datasets:
+  - id: data
+    kind: data
+    polarity: inbending
+    beam_energy_gev: 10.6041
+    source_globs: [data/*.hipo]
+  - id: mc
+    kind: monte_carlo
+    polarity: inbending
+    beam_energy_gev: 10.604
+    source_globs: [mc/*.hipo]
+limits: {mode: debug, max_files: 1, max_events_per_file: 10}
+paths: {scratch_root: scratch, output_root: output, log_root: logs}
+scheduler: {backend: local, account: unused, partition: unused, max_concurrent_jobs: 1}
+photon_models: {policy: reuse_or_train, score_threshold: 0.9}
+neutral_pion_background:
+  method: sweights
+  fit_min_gev: 0.07
+  fit_max_gev: 0.40
+  signal_min_gev: 0.106
+  signal_max_gev: 0.166
+  signal_model: gaussian
+  background_model: polynomial
+  background_order: 4
