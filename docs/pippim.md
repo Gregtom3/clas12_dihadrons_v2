@@ -20,6 +20,10 @@ cmake --build build -j
 If the clas12root library is not named `Clas12Root` at the site, pass the full
 link item with `-DCLAS12ROOT_LIBRARIES=...`.
 
+Set `CLAS12_RCDB_ROOT` to a local `rcdb.root` snapshot when the standard JLab
+environment does not already configure the RCDB connection. The path is never
+hard-coded into the analysis.
+
 ## Configure HIPO locations
 
 Edit only `source_globs` in `config/rga.yaml` if the production paths have
