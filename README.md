@@ -6,8 +6,10 @@ RG-A data and Monte Carlo. Development is led by Gregory Matousek.
 The implemented charged-channel vertical slice reads RG-A HIPO files once,
 builds π+π− candidates directly into a fit-ready ROOT tree, simultaneously fits
 all seven explicitly named beam-spin modulations, exports the full covariance,
-and creates uniform ROOT PDF/PNG plots. The fit can be rerun without rereading
-HIPO. Neutral-pion background handling is sideband-only; sWeights are rejected.
+and creates uniform ROOT PDF/PNG plots. A C++ ROOT GUI configures and launches
+the pipeline locally or through Slurm, monitors jobs/logs/storage, and displays
+the saved ROOT canvas. The fit can be rerun without rereading HIPO. Neutral-pion
+background handling is sideband-only; sWeights are rejected.
 
 ```sh
 cmake -S . -B build
